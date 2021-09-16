@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="form-group ">
-                        <input type="submit" value="S'inscrire" value="register" class="btn btn-outline-primary login-button" />
+                        <input type="submit" value="S'inscrire" name="register" class="btn btn-outline-secondary login-button" />
                     </div>
                 </div>
             </form>

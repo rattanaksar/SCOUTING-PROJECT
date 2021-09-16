@@ -9,7 +9,8 @@ if (!empty($_GET['view'])) {
         $view = 'login';
     } else if ($_GET['view'] == 'profile') {
         $view = 'profile';
-        $script .= '<script src="assets/js/profile.js" defer ></script>';
+    } else if ($_GET['view'] == 'userlist') {
+        $view = 'userlist';
     }
 } else { //Dans le cas où il n'y a pas de page demandée
     $view = 'home';

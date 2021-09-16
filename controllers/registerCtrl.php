@@ -2,6 +2,7 @@
 require_once 'models/MainModel.php';
 require_once 'models/Users.php';
 require_once 'classes/Form.php';
+require_once 'classes/str.php';
 $registerForm = new Form();
 
 //Si j'ai bien validé le formulaire
@@ -50,7 +51,6 @@ if (isset($_POST['register'])) {
     //Je vérifie le mot de passe
     $registerForm->isNotEmpty('password', $plainPassword);
     $registerForm->isValidLength('password', $plainPassword, 6, 255);
-
     //Si il n'y a pas d'erreur sur le formulaire
     if ($registerForm->isValid()) {
         $user = new Users();
@@ -62,7 +62,7 @@ if (isset($_POST['register'])) {
         $hashPassword = password_hash($plainPassword, PASSWORD_DEFAULT);
         $user->__set('password_hash', $hashPassword);
         $user->__set('mail', $mail);
-        $user->__set('hash', Str::getRandomString(60));
+        $user->__set('hash', str::getRandomString(50));
         if ($user->addUser() != 0) {
             echo 'Votre profil a bien été enregistré';
         }

@@ -8,7 +8,7 @@ class Form
 
     public $error = array();
     const ALPHA_NUMERIC = '/^[a-zA-Z0-9]+$/';
-    const REGEX_NAME = '/#^[A-Z]{1}[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+[-\']?[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+$#/';
+    const REGEX_NAME = '/^[A-Z]{1}[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+[-\']?[a-záàâäãåçéèêëíìîïñóòôöõúùûüýÿæœ]+$/';
 
     public function __construct()
     {

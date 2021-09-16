@@ -33,8 +33,6 @@ class Users extends MainModel
         $pdoStatment->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $pdoStatment->bindValue(':password_hash', $this->password_hash, PDO::PARAM_STR);
         $pdoStatment->bindValue(':hash', $this->hash, PDO::PARAM_STR);
-        var_dump($this->pdo);
-        die();
         $pdoStatment->execute();
         return $this->pdo->lastInsertId();
     }
@@ -53,26 +51,43 @@ class Users extends MainModel
         return $result;
     }
 
+    public function getUserInfoById()
+    {
+        $pdoStatment = $this->pdo->prepare('SELECT `id`, `pseudo`, `avatar`FROM `users`WHERE `id` = :id');
+        $pdoStatment->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $pdoStatment->execute();
+        // On retourne une ligne depuis un jeu de résultats associé à l'objet 
+        return $pdoStatment->fetch(PDO::FETCH_OBJ);
+    }
+
     public function getUserInfoByMail()
     {
-        $pdoStatment = $this->pdo->prepare('SELECT `users`.`id`, `pseudo`, `level`, `last_session_at`,`avatar`  FROM `users` INNER JOIN `roles` ON `users`.`id_roles` = `roles`.`id` WHERE `mail` = :mail');
+        $pdoStatment = $this->pdo->prepare('SELECT `users`.`id`, `pseudo`, `firstname`, `lastname`, `birthdate`, `avatar`,`level` FROM `users` INNER JOIN `role` ON `users`.`id_roles` = `role`.`id` WHERE `mail` = :mail');
         $pdoStatment->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $pdoStatment->execute();
         return $pdoStatment->fetch(PDO::FETCH_OBJ);
     }
 
-    public function updateUserInfos($userInfos)
+    public function updateUserInfo()
     {
-        $update = [];
-        foreach ($userInfos as $field => $value) {
-            $update[] = $field . ' = :' . $field;
-        }
-        $finalUpdate = implode(', ', $update);
-        $pdoStatment = $this->pdo->prepare('UPDATE ' . $this->table . ' SET ' . $finalUpdate . ' WHERE `id` = :id');
-        foreach ($userInfos as $field => $value) {
-            $pdoStatment->bindValue(':' . $field, $value, PDO::PARAM_STR);
-        }
+        $query = 'UPDATE users SET lastname=:lastname, firstname=:firstname, birthdate=:birthdate, pseudo=:pseudo, mail=:mail WHERE id = :id';
+        $pdoStatment = $this->pdo->prepare($query);
+        $pdoStatment->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
+        $pdoStatment->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
+        $pdoStatment->bindValue(':birthdate', $this->birthdate, PDO::PARAM_STR);
+        $pdoStatment->bindValue(':pseudo', $this->phone, PDO::PARAM_STR);
+        $pdoStatment->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $pdoStatment->bindValue(':id', $this->id, PDO::PARAM_INT);
-        return   $pdoStatment->execute();
+        return $pdoStatment->execute();
+    }
+    public function getUsersList()
+    {
+        $usersList = array();
+        $query = ('SELECT `id`, `lastname`, `firstname` FROM `users`');
+        $usersResult = $this->pdo->query($query);
+        if (is_object($usersResult)) {
+            $usersList = $usersResult->fetchAll(PDO::FETCH_OBJ);
+        }
+        return $usersList;
     }
 }

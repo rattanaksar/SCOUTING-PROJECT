@@ -27,24 +27,21 @@ require 'controllers/headerCtrl.php';
                     </button>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" class="logo" href="index.php">
                         <img src="assets/logo/logo.png" width="130" height="120"> </a>
                 </div>
                 <?php
                 if (isset($_SESSION['user']['isConnected']) && $_SESSION['user']['isConnected']) { ?>
-                    <li><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><?= $_SESSION['user']['pseudo'] ?></a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="?view=profile">Voir mon profil</a></li>
-                            <li><a class="dropdown-item" href="?action=disconnect">Deconnexion</a></li>
-                        </ul>
-                    </li>
-                <?php } else { ?>
                     <ul class="navbar-nav text-right">
                         <li class="nav-item active">
-                        <li class="nav-item"><a class="nav-link" href="?view=register">Inscription</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?view=login">Connexion</a></li>
-                    </ul>
+                        <li class="nav-item"><a class="nav-link" href="?view=profile">Voir mon profil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?view=userlist">Liste des joueurs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?action=disconnect">Deconnexion</a></li>
+                    <?php } else { ?> <ul class="navbar-nav text-right">
+                            <li class="nav-item active">
+                            <li class="nav-item"><a class="nav-link" href="?view=register">Inscription</a></li>
+                            <li class="nav-item"><a class="nav-link" href="?view=login">Connexion</a></li>
+                        </ul>
             </div><!-- /.navbar-collapse -->
         <?php } ?>
         </nav>

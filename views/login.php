@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="form-group ">
-                    <input type="submit" value="Se connecter" name="login" class="btn btn-outline-primary login-button" />
+                    <input type="submit" value="Se connecter" name="login" class="btn btn-outline-secondary login-button" />
                 </div>
             </form>
         </div>
