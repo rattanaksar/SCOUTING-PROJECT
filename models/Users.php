@@ -10,6 +10,7 @@ class Users extends MainModel
     protected $password_hash = '';
     protected $birthdate = '';
     protected $hash = null;
+    protected $id_roles = 0;
     protected $table = 'users';
 
     public function __construct()
@@ -24,7 +25,7 @@ class Users extends MainModel
      */
     public function addUser()
     {
-        $query = 'INSERT INTO users(pseudo, lastname, firstname, birthdate, mail, password_hash, hash) VALUES(:pseudo,:lastname, :firstname, :birthdate, :mail, :password_hash, :hash)';
+        $query = 'INSERT INTO users(pseudo, lastname, firstname, birthdate, mail, password_hash, hash,id_roles) VALUES(:pseudo,:lastname, :firstname, :birthdate, :mail, :password_hash, :hash, :id_roles)';
         $pdoStatment = $this->pdo->prepare($query);
         $pdoStatment->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
         $pdoStatment->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
@@ -32,8 +33,10 @@ class Users extends MainModel
         $pdoStatment->bindValue(':birthdate', $this->birthdate, PDO::PARAM_STR);
         $pdoStatment->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $pdoStatment->bindValue(':password_hash', $this->password_hash, PDO::PARAM_STR);
+        $pdoStatment->bindValue(':id_roles', $this->role, PDO::PARAM_INT);
         $pdoStatment->bindValue(':hash', $this->hash, PDO::PARAM_STR);
         $pdoStatment->execute();
+        var_dump($this);
         return $this->pdo->lastInsertId();
     }
     /**
@@ -53,7 +56,7 @@ class Users extends MainModel
 
     public function getUserInfoById()
     {
-        $pdoStatment = $this->pdo->prepare('SELECT `id`, `pseudo`, `avatar`FROM `users`WHERE `id` = :id');
+        $pdoStatment = $this->pdo->prepare('SELECT `users`.`id`, `pseudo`, `firstname`, `name`, `lastname`,`birthdate`, `avatar` FROM users INNER JOIN `role` on users.id_roles = `role`.`id` WHERE `users`.`id`= :id');
         $pdoStatment->bindValue(':id', $this->id, PDO::PARAM_INT);
         $pdoStatment->execute();
         // On retourne une ligne depuis un jeu de résultats associé à l'objet 
@@ -62,7 +65,7 @@ class Users extends MainModel
 
     public function getUserInfoByMail()
     {
-        $pdoStatment = $this->pdo->prepare('SELECT `users`.`id`, `pseudo`, `firstname`, `lastname`, `birthdate`, `avatar`,`level` FROM `users` INNER JOIN `role` ON `users`.`id_roles` = `role`.`id` WHERE `mail` = :mail');
+        $pdoStatment = $this->pdo->prepare('SELECT `users`.`id`, `pseudo`, `firstname`, `lastname`, `birthdate`, `avatar`,`name` FROM `users` INNER JOIN `role` ON `users`.`id_roles` = `role`.`id` WHERE `mail` = :mail');
         $pdoStatment->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $pdoStatment->execute();
         return $pdoStatment->fetch(PDO::FETCH_OBJ);
@@ -70,13 +73,11 @@ class Users extends MainModel
 
     public function updateUserInfo()
     {
-        $query = 'UPDATE users SET lastname=:lastname, firstname=:firstname, birthdate=:birthdate, pseudo=:pseudo, mail=:mail WHERE id = :id';
-        $pdoStatment = $this->pdo->prepare($query);
+        $pdoStatment = $this->pdo->prepare('UPDATE users SET lastname=:lastname, firstname=:firstname, birthdate=:birthdate, pseudo=:pseudo WHERE id = :id');
         $pdoStatment->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $pdoStatment->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
         $pdoStatment->bindValue(':birthdate', $this->birthdate, PDO::PARAM_STR);
         $pdoStatment->bindValue(':pseudo', $this->phone, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         $pdoStatment->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $pdoStatment->execute();
     }

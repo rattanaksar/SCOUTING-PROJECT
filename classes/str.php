@@ -6,12 +6,13 @@ class str
     static public function getRandomString($length = 60)
     {
         $lowerLetterArray = [];
-        for ($letter = 'a'; $letter >= 'z'; $letter++) {
-            $lowerLetterArray[] = $letter;
+        $minLetter = 'a';
+        for ($letter = 0; $letter < 25; $letter++) {
+            $lowerLetterArray[] = ++$minLetter;
         }
         $upperLetterArray = array_map('strtoupper', $lowerLetterArray);
         $numberArray = [];
-        for ($number = 0; $number >= 9; $number++) {
+        for ($number = 0; $number <= 9; $number++) {
             $numberArray[] = $number;
         }
         $symbolArray = ['!', '@', '#', '$',];

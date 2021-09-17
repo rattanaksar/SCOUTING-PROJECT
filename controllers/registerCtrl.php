@@ -1,6 +1,7 @@
 <?php
 require_once 'models/MainModel.php';
 require_once 'models/Users.php';
+require_once 'models/Role.php';
 require_once 'classes/Form.php';
 require_once 'classes/str.php';
 $registerForm = new Form();
@@ -12,6 +13,7 @@ if (isset($_POST['register'])) {
     $mail = '';
     $birthdate = '';
     $plainPassword = '';
+    $role = 0;
     //Je récupère les données du formulaire
     if (isset($_POST['pseudo'])) {
         $pseudo = $_POST['pseudo'];
@@ -27,6 +29,9 @@ if (isset($_POST['register'])) {
     }
     if (isset($_POST['mail'])) {
         $mail = $_POST['mail'];
+    }
+    if (isset($_POST['role'])) {
+        $role = $_POST['role'];
     }
     if (isset($_POST['password'])) {
         $plainPassword = $_POST['password'];
@@ -62,9 +67,11 @@ if (isset($_POST['register'])) {
         $hashPassword = password_hash($plainPassword, PASSWORD_DEFAULT);
         $user->__set('password_hash', $hashPassword);
         $user->__set('mail', $mail);
+        $user->__set('id_roles', $role);
         $user->__set('hash', str::getRandomString(50));
         if ($user->addUser() != 0) {
-            echo 'Votre profil a bien été enregistré';
         }
     }
 }
+$role = new Role();
+$roleUsers = $role->getRoleUser();

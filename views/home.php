@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<link rel="stylesheet" href="./assets/home.css">
-<header class="header-paralax">
+<span class="header-paralax">
     <h1 class>SCOUTING
         <image src="assets/logo/SCOUTING.png">
     </h1>
-</header>
+</span>
 <main>
     <div class="container">
         <div class="row">
@@ -17,6 +15,3 @@
             </div>
         </div>
     </div>
-    <?php
-    include 'footer.php';
-    ?>

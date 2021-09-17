@@ -48,17 +48,17 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="profil" class="form-label">Profil</label>
+                    <div class="form-group">
+                        <label for="role" class="form-label" id="role">Profil</label>
                         <div class="col-md-auto">
-                            <select class="form-control" name="txt_role">
-                                <option value="" selected="selected"> - choisissez un profil - </option>
-                                <option value="Joueur">Joueur</option>
-                                <option value="Agent">Agent</option>
-                                <option value="Club">Club</option>
+                            <select class="form-control" name="role">
+                                <option value="" selected disable hidden>Choisissez votre profil</option>
+                                <?php foreach ($roleUsers as $roles) { ?>
+                                    <option value="<?= $roles->name ?>"><?= $roles->name ?></option>
+                                <?php } ?>
                             </select>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="form-group">
                         <label for="password" class="form-label">Mot de passe</label>
                         <label for="password" class="cols-sm-2 control-label"></label>

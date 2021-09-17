@@ -1,5 +1,6 @@
 <?php
 $script = '';
+$css = '';
 //Je vérifie la page demandée
 if (!empty($_GET['view'])) {
     //Dans le cas où la page demandée est la page d'inscription
@@ -9,11 +10,17 @@ if (!empty($_GET['view'])) {
         $view = 'login';
     } else if ($_GET['view'] == 'profile') {
         $view = 'profile';
+        $css = '<link rel="stylesheet" href="assets/profile.css">';
     } else if ($_GET['view'] == 'userlist') {
         $view = 'userlist';
+        $css = '<link rel="stylesheet" href="assets/userlist.css">';
+    } else if ($_GET['view'] == 'userprofile') {
+        $view = 'userprofile';
+        $css = '<link rel="stylesheet" href="assets/userprofile.css">';
     }
 } else { //Dans le cas où il n'y a pas de page demandée
     $view = 'home';
+    $css = '<link rel="stylesheet" href="assets/home.css">';
 }
 
 if (!empty($_GET['module'])) {

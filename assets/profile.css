@@ -185,6 +185,10 @@ body {
     color: #ccac00;
 }
 
+.profil {
+    color: #030114;
+}
+
 .btn-outline-secondary:hover {
     color: #fff;
     background-color: #ccac00;

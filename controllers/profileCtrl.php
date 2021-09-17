@@ -13,9 +13,29 @@ $firstname = isset($_SESSION['user']['firstname']) ? $_SESSION['user']['firstnam
 $birthdate = isset($_SESSION['user']['birthdate']) ? $_SESSION['user']['birthdate'] : '';
 $mail = isset($_SESSION['user']['mail']) ? $_SESSION['user']['mail'] : '';
 
-$user = new Users();
-if (isset($_GET['userId'])) {
-    $user->id = $_GET['userId'];
-}
+// On contrôle les informations modifiées
 
-$isFind = $user->getUserInfoById();
+$errors = array();
+if (count($_POST) > 0) {
+
+    if (!empty($_POST['lastname'])) {
+        $user->lastname = $_POST['lastname'];
+    } else {
+        $errors['lastname'] = 'Veuillez renseigner votre nom';
+    }
+
+    if (!empty($_POST['firstname'])) {
+        $user->firstname = $_POST['firstname'];
+    } else {
+        $errors['firstname'] = 'Veuillez renseigner votre prénom';
+    }
+
+    if (!empty($_POST['birthdate'])) {
+        $user->birthdate = $_POST['birthdate'];
+    } else {
+        $errors['birthdate'] = 'Veuillez renseigner votre date de naissance';
+    }
+    if (count($errors) == 0) {
+        $user->updateUserInfo();
+    }
+}

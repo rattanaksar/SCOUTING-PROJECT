@@ -4,6 +4,6 @@ require_once 'models/Users.php';
 
 $user = new Users();
 if (isset($_GET['userId'])) {
-    $user->id = $_GET['userId'];
+    $user->__set('id', $_GET['userId']);
 }
-$usersList = $user->getUsersList();
+$isFind = $user->getUserInfoById();

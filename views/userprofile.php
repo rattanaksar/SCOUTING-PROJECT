@@ -1,12 +1,11 @@
 <div class="container">
-    <a href="?view=updateprofile">
-        <input type="submit" name="submit" class="btn btn-outline-secondary login-button" value="Modifer vos informations" /></a>
     <div class="top">
         <div class="main">
-            <form action="profile.php?userId=<?= $_GET['userId']->id ?>" method="post">
+            <form action="userprofile.php?userId=<?= $_GET['userId']->id ?>" method="post">
                 <ul>
-                    <li class="pseudo">Pseudo : <?= $pseudo ?></li>
-                    <li class="name"><?= $lastname ?> <?= $firstname ?></li>
+                    <li class="profil">Profil : <?= $isFind->name ?></li>
+                    <li class="pseudo">Pseudo : <?= $isFind->pseudo ?></li>
+                    <li class="name"><?= $isFind->lastname ?> <?= $isFind->firstname ?></li>
                     <li class="bar"></li>
                     <li class="position">Attaquant</li>
                     <li class="flag"><img src="https://image.flaticon.com/icons/svg/330/330487.svg" alt="Argentina" title="Argentina"></li>
@@ -22,7 +21,7 @@
                 <li class="data">80 kg</li>
                 <li class="bar"></li>
                 <li class="header">Date de naissance</li>
-                <li class="data"><?= $birthdate ?></li>
+                <li class="data"><?= $isFind->birthdate ?></li>
                 <li class="bar"></li>
                 <li class="header">Club</li>
                 <li class="data">Shanghái Shenhua (China)</li>

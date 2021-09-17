@@ -6,7 +6,7 @@
     margin: 0;
 }
 
-.header-paralax {
+.span-paralax {
     background-image: url('');
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,7 +15,7 @@
     height: 600px;
 }
 
-.header-paralax h1 {
+.span-paralax h1 {
     text-align: center;
     color: #fff;
     text-shadow: 2px 3px 1px #111111;
@@ -26,7 +26,7 @@
     color: #ccac00;
 }
 
-.header-paralax h2 {
+.span-paralax h2 {
     text-align: center;
     color: #fff;
     text-shadow: 2px 3px 1px #111111;
