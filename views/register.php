@@ -9,6 +9,13 @@
                         <div class="input-group">
                             <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-user fa" style="color:white" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Entrer votre pseudo" />
+                            <?php
+                            if (!empty($error['pseudo'])) {
+                            ?>
+                                <p class="text-danger"><?= $error['pseudo']; ?></p>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                     <div class="form-group">
@@ -17,6 +24,13 @@
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-user fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Entrer votre nom" />
+                                <?php
+                                if (!empty($error['lastname'])) {
+                                ?>
+                                    <p class="text-danger"><?= $error['lastname']; ?></p>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -26,6 +40,13 @@
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-user fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Entrer votre prénom" />
+                                <?php
+                                if (!empty($error['firstname'])) {
+                                ?>
+                                    <p class="text-danger"><?= $error['firstname']; ?></p>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -35,6 +56,14 @@
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-calendar-o fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="date" class="form-control" name="birthdate" id="birthdate" />
+                                <?php
+                                if (!empty($error['birthdate'])) {
+                                ?>
+                                    <p class="text-danger"><?= $error['birthtdate']; ?></p>
+                                <?php
+                                }
+                                ?>
+
                             </div>
                         </div>
                     </div>
@@ -45,6 +74,13 @@
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-envelope fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="email" name="mail" id="mail" class="form-control" />
+                                <?php
+                                if (!empty($error['mail'])) {
+                                ?>
+                                    <p class="text-danger"><?= $error['mail']; ?></p>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -66,14 +102,39 @@
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-key fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="password" name="password" id="password" class="form-control" />
+                                <?php
+                                if (!empty($error['mail'])) {
+                                ?>
+                                    <p class="text-danger"><?= $error['mail']; ?></p>
+                                <?php
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
                     <div class="form-group ">
-                        <input type="submit" value="S'inscrire" name="register" class="btn btn-outline-secondary login-button" />
+                        <input type="submit" value="S'inscrire" id="registerBtn" name="register" class="btn btn-outline-secondary" value="Créer mon compte" data-bs-toggle="modal" data-bs-target="#userCreated" s>
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="userCreated" aria-labelledby="userCreatedLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Bienvenue!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="lead">
+                    <?= $userCreated; ?>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

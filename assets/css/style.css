@@ -17,9 +17,8 @@ body {
     }
 }
 
-.navbar-brand {
-    font-size: 25px;
-    font-family: 'Jost', sans-serif;
+.bg-light {
+    background: transparent;
 }
 
 .divAdd h1 {

@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap');
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+body {
+    height: 100%;
+    background: url(https://www.wallpapertip.com/wmimgs/171-1718333_black-and-white-football-backgrounds.jpg) no-repeat;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    opacity: 0.9;
+    background-color: Black;
+    z-index: 8;
 }
 
-.span-paralax {
+.paralax {
     background-image: url('');
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,7 +20,7 @@
     height: 600px;
 }
 
-.span-paralax h1 {
+.namelogo {
     text-align: center;
     color: #fff;
     text-shadow: 2px 3px 1px #111111;
@@ -26,7 +31,7 @@
     color: #ccac00;
 }
 
-.span-paralax h2 {
+.paralax h1 {
     text-align: center;
     color: #fff;
     text-shadow: 2px 3px 1px #111111;

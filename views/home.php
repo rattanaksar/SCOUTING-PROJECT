@@ -1,8 +1,9 @@
-<span class="header-paralax">
-    <h1 class>SCOUTING
+<div class="paralax">
+    <div class="namelogo">SCOUTING
         <image src="assets/logo/SCOUTING.png">
-    </h1>
-</span>
+    </div>
+</div>
+</header>
 <main>
     <div class="container">
         <div class="row">

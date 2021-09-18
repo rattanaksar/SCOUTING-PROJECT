@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,200&display=swap');
+
+body {
+    height: 100%;
+    background: url(https://www.wallpapertip.com/wmimgs/171-1718333_black-and-white-football-backgrounds.jpg) no-repeat;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    opacity: 0.9;
+    background-color: Black;
+    z-index: 8;
+}
+
+.card {
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e5e9f2;
+    border-radius: .2rem;
+}
+
+.card-header:first-child {
+    border-radius: calc(.2rem - 1px) calc(.2rem - 1px) 0 0;
+}
+
+.card-header {
+    border-bottom-width: 1px;
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    color: inherit;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e9f2;
+}
+
+.h3,
+h3 {
+    font-size: 1.75rem;
+    color: #ccac00;
+    padding-top: 2%;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #ccac00;
+    border-color: #ccac00;
+}

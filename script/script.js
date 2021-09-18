@@ -15,3 +15,13 @@ function editdetails2() {}
                 }, 600);
             }
         }
+function checkRegisterForm() {
+            let formInput = document.forms["registerForm"].elements;
+            let canSubmit = false;
+            for (let i = 0; i < formInput.length; i++) {
+                if (formInput[i].value.length === 0) {
+                    canSubmit = true;
+                }
+            }
+            document.getElementById("registerBtn").disabled = canSubmit;
+        }

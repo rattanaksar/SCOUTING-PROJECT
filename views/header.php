@@ -13,7 +13,7 @@ require 'controllers/headerCtrl.php';
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet" type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <?= isset($css) ? $css : null ?>
 </head>
 

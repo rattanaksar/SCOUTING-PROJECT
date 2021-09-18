@@ -4,7 +4,9 @@ require_once 'models/Users.php';
 require_once 'models/Role.php';
 require_once 'classes/Form.php';
 require_once 'classes/str.php';
+
 $registerForm = new Form();
+$userCreated = '';
 
 //Si j'ai bien validé le formulaire
 if (isset($_POST['register'])) {
@@ -70,6 +72,7 @@ if (isset($_POST['register'])) {
         $user->__set('id_roles', $role);
         $user->__set('hash', str::getRandomString(50));
         if ($user->addUser() != 0) {
+            $userCreated = 'Votre compte a bien été crée! Vous pouvez vous connecter.';
         }
     }
 }

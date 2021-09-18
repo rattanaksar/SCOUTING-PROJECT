@@ -1,6 +1,6 @@
 <div class="container">
     <a href="?view=updateprofile">
-        <input type="submit" name="submit" class="btn btn-outline-secondary login-button" value="Modifer vos informations" /></a>
+        <input type="submit" name="submit" class="btn btn-outline-secondary login-button" value="Modifier vos informations" /></a>
     <div class="top">
         <div class="main">
             <form action="profile.php?userId=<?= $_GET['userId']->id ?>" method="post">

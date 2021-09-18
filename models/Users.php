@@ -36,7 +36,6 @@ class Users extends MainModel
         $pdoStatment->bindValue(':id_roles', $this->role, PDO::PARAM_INT);
         $pdoStatment->bindValue(':hash', $this->hash, PDO::PARAM_STR);
         $pdoStatment->execute();
-        var_dump($this);
         return $this->pdo->lastInsertId();
     }
     /**
