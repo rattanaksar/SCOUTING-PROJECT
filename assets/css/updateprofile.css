@@ -51,9 +51,18 @@ h3 {
     font-size: 1.75rem;
     color: #ccac00;
     padding-top: 2%;
+    font-family: 'Titillium Web', sans-serif;
+
 }
 
 .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #ccac00;
+    border-color: #ccac00;
+}
+
+.list-group-item.active {
+    z-index: 2;
     color: #fff;
     background-color: #ccac00;
     border-color: #ccac00;

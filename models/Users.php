@@ -72,14 +72,15 @@ class Users extends MainModel
 
     public function updateUserInfo()
     {
-        $pdoStatment = $this->pdo->prepare('UPDATE users SET lastname=:lastname, firstname=:firstname, birthdate=:birthdate, pseudo=:pseudo WHERE id = :id');
+        $pdoStatment = $this->pdo->prepare('UPDATE users SET lastname=:lastname, firstname=:firstname, birthdate=:birthdate, pseudo=:pseudo WHERE id = :userid');
         $pdoStatment->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $pdoStatment->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
         $pdoStatment->bindValue(':birthdate', $this->birthdate, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':pseudo', $this->phone, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $pdoStatment->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
+        $pdoStatment->bindValue(':userid', $this->id, PDO::PARAM_INT);
         return $pdoStatment->execute();
     }
+
     public function getUsersList()
     {
         $usersList = array();

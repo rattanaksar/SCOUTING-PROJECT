@@ -1,3 +1,6 @@
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
 <div class="container p-0">
     <h1 class="h3 mb-3">Paramètres</h1>
     <div class="row">
@@ -15,7 +18,10 @@
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
                         Mot de passe
                     </a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#characteristics" role="tab">
+                        Caractéristiques
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#deleteaccount" role="tab">
                         Suppression de votre compte
                     </a>
                 </div>
@@ -57,11 +63,10 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="text-center">
-                                            <img alt="Andrew Jones" src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle img-responsive mt-2" width="128" height="128">
+                                            <img alt="image profile" src="https://s3.amazonaws.com/media.muckrack.com/profile/images/10239946/judiq.jpg.256x256_q100_crop-smart.jpg" class="rounded-circle img-responsive mt-2" width="128" height="128">
                                             <div class="mt-2">
                                                 <span class="btn btn-outline-secondary login-button"><i class="fa fa-upload"></i></span>
                                             </div>
-                                            <small>For best results, use an image at least 128px by 128px in .jpg format</small>
                                         </div>
                                     </div>
                                 </div>
@@ -91,11 +96,11 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputFirstName">Prénom</label>
-                                        <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
+                                        <input type="text" class="form-control" id="inputFirstName" placeholder="Prénom">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputLastName">Nom</label>
-                                        <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
+                                        <input type="text" class="form-control" id="inputLastName" placeholder="Nom">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -103,56 +108,88 @@
                                     <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputBirthdate">Date de naissance</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                    <label for="birthdate">Date de naissance</label>
+                                    <input type="date" class="form-control" id="birthdate" placeholder="date de naissance">
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputCity">City</label>
-                                        <input type="text" class="form-control" id="inputCity">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputState">State</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected="">Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputZip">Zip</label>
-                                        <input type="text" class="form-control" id="inputZip">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-outline-secondary login-button">Enregistrer vos modifications</button>
+                                <input type="submit" value="Enregister les modifications" id="updateBtn" name="update" class="btn btn-outline-secondary" value="Modifier les informations "></button>
                             </form>
 
                         </div>
                     </div>
 
                 </div>
-                <div class=#password>
-                    <div class="tab-pane fade show active" id="password" role="tabpanel">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Password</h5>
+                <div class="tab-pane fade" id="password" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Mot de passe</h5>
 
-                                <form>
-                                    <div class="form-group">
-                                        <label for="inputPasswordCurrent">Current password</label>
-                                        <input type="password" class="form-control" id="inputPasswordCurrent">
-                                        <small><a href="">Forgot your password?</a></small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputPasswordNew">New password</label>
-                                        <input type="password" class="form-control" id="inputPasswordNew">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputPasswordNew2">Verify password</label>
-                                        <input type="password" class="form-control" id="inputPasswordNew2">
-                                    </div>
-                                    <button type="submit" class="btn btn-outline-secondary login-button">Save changes</button>
-                                </form>
-                            </div>
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputPasswordCurrent">Mot de passe actuel</label>
+                                    <input type="password" class="form-control" id="inputPasswordCurrent">
+                                    <small><a href="">Mot de passe oublié ?</a></small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPasswordNew">Nouveau mot de passe</label>
+                                    <input type="password" class="form-control" id="inputPasswordNew">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPasswordNew2">Confirmez le nouveau mot de passe</label>
+                                    <input type="password" class="form-control" id="inputPasswordNew2">
+                                </div>
+                                <button type="submit" class="btn btn-outline-secondary login-button">Enregistrer vos modifications</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="characteristics" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Caractéristiques</h5>
+
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputweight">Taille</label>
+                                    <input type="number" class="form-control" id="inputweight">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputheight">Poids</label>
+                                    <input type="number" class="form-control" id="inputheight">
+                                </div>
+                                <div class="form-group">
+                                    <label for="foot-selected">Pied préféré</label>
+                                    <br>
+                                    <select id="foot-selected">
+                                        <option value="">--Choississez votre pied fort--</option>
+                                        <option value="left">Droit</option>
+                                        <option value="right">Gauche</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spokenLanguages">Langues parlées</label>
+                                    <br>
+                                    <select id="spokenLanguages">
+                                        <option value="">--Choississez la langue parlée--</option>
+                                        <option value="FR">Français</option>
+                                        <option value="EN"></option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-outline-secondary login-button">Enregistrer vos modifications</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="deleteaccount" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Suppression du compte</h5>
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputPasswordNew2">Confirmez votre mot de passe avant la suppression</label>
+                                    <input type="password" class="form-control" id="inputPasswordNew2">
+                                </div>
+                                <button type="submit" class="btn btn-outline-danger login-button">Supprimez votre compte</button>
+                            </form>
                         </div>
                     </div>
                 </div>

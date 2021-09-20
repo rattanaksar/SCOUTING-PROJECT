@@ -8,7 +8,6 @@
                     <li class="name"><?= $isFind->lastname ?> <?= $isFind->firstname ?></li>
                     <li class="bar"></li>
                     <li class="position">Attaquant</li>
-                    <li class="flag"><img src="https://image.flaticon.com/icons/svg/330/330487.svg" alt="Argentina" title="Argentina"></li>
                 </ul>
         </div>
         <div class="photo"></div>
@@ -24,7 +23,7 @@
                 <li class="data"><?= $isFind->birthdate ?></li>
                 <li class="bar"></li>
                 <li class="header">Club</li>
-                <li class="data">Shanghái Shenhua (China)</li>
+                <li class="data">Manchester United (Premier)</li>
             </ul>
         </div>
     </div>

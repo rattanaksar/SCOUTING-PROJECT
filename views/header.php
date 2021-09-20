@@ -37,7 +37,7 @@ require 'controllers/headerCtrl.php';
                         <li class="nav-item active">
                         <li class="nav-item"><a class="nav-link" href="?view=profile">Voir mon profil</a></li>
                         <li class="nav-item"><a class="nav-link" href="?view=userlist">Liste des joueurs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?action=disconnect">Deconnexion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?action=disconnect">Déconnexion</a></li>
                     <?php } else { ?> <ul class="navbar-nav text-right">
                             <li class="nav-item active">
                             <li class="nav-item"><a class="nav-link" href="?view=register">Inscription</a></li>

@@ -113,7 +113,7 @@
                         </div>
                     </div>
                     <div class="form-group ">
-                        <input type="submit" value="S'inscrire" id="registerBtn" name="register" class="btn btn-outline-secondary" value="Créer mon compte" data-bs-toggle="modal" data-bs-target="#userCreated" s>
+                        <input type="submit" value="S'inscrire" id="registerBtn" name="register" class="btn btn-outline-secondary" value="Créer mon compte" data-bs-toggle="modal" data-bs-target="#userCreated">
                     </div>
                 </div>
             </form>
