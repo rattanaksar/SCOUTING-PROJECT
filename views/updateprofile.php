@@ -38,7 +38,6 @@
                                 <div class="dropdown show">
                                     <a href="#" data-toggle="dropdown" data-display="static">
                                     </a>
-
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="#">Action</a>
                                         <a class="dropdown-item" href="#">Another action</a>
@@ -143,11 +142,10 @@
                                 </div>
                                 <input type="submit" value="Enregister les modifications" id="updateBtn" name="UpdateContactDetails" class="btn btn-outline-secondary" value="Modifier les informations "></button>
                             </form>
-
                         </div>
                     </div>
-
                 </div>
+                <!-- Formulaire de modification de mot de passe!-->
                 <div class="tab-pane fade" id="password" role="tabpanel">
                     <div class="card">
                         <div class="card-body">
@@ -172,6 +170,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Formulaire des caractéristiques!-->
                 <div class="tab-pane fade" id="characteristics" role="tabpanel">
                     <div class="card">
                         <div class="card-body">
@@ -221,6 +220,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Formulaire de suppression du compte!-->
                 <div class="tab-pane fade" id="deleteaccount" role="tabpanel">
                     <div class="card">
                         <div class="card-body">
