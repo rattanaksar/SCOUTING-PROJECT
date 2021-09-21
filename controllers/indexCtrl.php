@@ -22,6 +22,9 @@ if (!empty($_GET['view'])) {
     } else if ($_GET['view'] == 'updateprofile') {
         $view = 'updateprofile';
         $css = '<link rel="stylesheet" href="./assets/css/updateprofile.css">';
+    } else if ($_GET['view'] == 'about') {
+        $view = 'about';
+        $css = '<link rel="stylesheet" href="./assets/css/about.css">';
     }
 } else { //Dans le cas où il n'y a pas de page demandée
     $view = 'home';

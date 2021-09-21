@@ -5,7 +5,7 @@
     <h1 class="h3 mb-3">Paramètres</h1>
     <div class="row">
         <div class="col-md-5 col-xl-4">
-
+            <!-- Menu de gauche !-->
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">Paramètres de votre profil</h5>
@@ -15,11 +15,11 @@
                     <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account" role="tab">
                         Compte
                     </a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
-                        Mot de passe
-                    </a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#characteristics" role="tab">
                         Caractéristiques
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
+                        Mot de passe
                     </a>
                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#deleteaccount" role="tab">
                         Suppression de votre compte
@@ -57,7 +57,38 @@
                                             <input type="text" class="form-control" id="inputUsername" placeholder="Pseudo">
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputUsername">Description</label>
+                                            <label for="countrySelected">Pays</label>
+                                            <br>
+                                            <select id="country">
+                                                <option value="" selected disable hidden>--Sélectionnez votre pays--</option>
+                                                <?php foreach ($CountriesList as $country) { ?>
+                                                    <option value="<?= $country->countryname ?>"><?= $country->countryname ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nationalitySelected">Nationalité</label>
+                                            <br>
+                                            <select id="nationality">
+                                                <option value="" selected disable hidden>--Sélectionnez votre nationalité--</option>
+                                                <?php foreach ($nationalityList as $nationality) { ?>
+                                                    <option value="<?= $nationality->name ?>"><?= $nationality->name ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="spokenLanguages">Langue parlée</label>
+                                            <br>
+                                            <select id="spokenLanguages">
+                                                <option value="" selected disable hidden>--Choisissez votre langue--</option>
+                                                <?php foreach ($spokenLanguages as $languages) { ?>
+                                                    <option value="<?= $languages->name ?>"><?= $languages->name ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <br>
+                                            <label for="bio">Description</label>
                                             <textarea rows="2" class="form-control" id="inputBio" placeholder="Parlez nous de vous"></textarea>
                                         </div>
                                     </div>
@@ -70,8 +101,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <button type="submit" class=" btn btn-outline-secondary login-button">Enregistrer vos modifications</button>
+                                <input type="submit" value="Enregister les modifications" id="updateBtn" name="UpdateUserInfo" class="btn btn-outline-secondary" value="Modifier les informations "></button>
                             </form>
 
                         </div>
@@ -104,14 +134,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail4">Mail</label>
+                                    <label for="inputEmail">Mail</label>
                                     <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <label for="birthdate">Date de naissance</label>
                                     <input type="date" class="form-control" id="birthdate" placeholder="date de naissance">
                                 </div>
-                                <input type="submit" value="Enregister les modifications" id="updateBtn" name="update" class="btn btn-outline-secondary" value="Modifier les informations "></button>
+                                <input type="submit" value="Enregister les modifications" id="updateBtn" name="UpdateContactDetails" class="btn btn-outline-secondary" value="Modifier les informations "></button>
                             </form>
 
                         </div>
@@ -137,7 +167,7 @@
                                     <label for="inputPasswordNew2">Confirmez le nouveau mot de passe</label>
                                     <input type="password" class="form-control" id="inputPasswordNew2">
                                 </div>
-                                <button type="submit" class="btn btn-outline-secondary login-button">Enregistrer vos modifications</button>
+                                <input type="submit" id="updateBtn" name="UpdatePassword" class="btn btn-outline-secondary" value="Modifier votre mot de passe"></button>
                             </form>
                         </div>
                     </div>
@@ -149,32 +179,44 @@
 
                             <form>
                                 <div class="form-group">
-                                    <label for="inputweight">Taille</label>
-                                    <input type="number" class="form-control" id="inputweight">
+                                    <label for="inputweight">Poids</label>
+                                    <input type="number" class="form-control" id="weight" name="weight" value="<?= $users->weight ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputheight">Poids</label>
-                                    <input type="number" class="form-control" id="inputheight">
+                                    <label for="inputheight">Taille</label>
+                                    <input type="number" class="form-control" id="height" name="height" value="<?= $users->height ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="position-selected">Poste occupé</label>
+                                    <br>
+                                    <select id="position-selected">
+                                        <option value="" selected disable hidden>--Choisissez votre poste--</option>
+                                        <?php foreach ($positionList as $position) { ?>
+                                            <option value="<?= $position->name ?>"><?= $position->name ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="foot-selected">Pied préféré</label>
                                     <br>
                                     <select id="foot-selected">
-                                        <option value="">--Choississez votre pied fort--</option>
-                                        <option value="left">Droit</option>
-                                        <option value="right">Gauche</option>
+                                        <option value="" selected disable hidden>--Choisissez votre pied fort--</option>
+                                        <?php foreach ($footPrefered as $foots) { ?>
+                                            <option value="<?= $foots->foot_prefered ?>"><?= $foots->foot_prefered ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="spokenLanguages">Langues parlées</label>
+                                    <label for="styleplayer">Style de joueur</label>
                                     <br>
-                                    <select id="spokenLanguages">
-                                        <option value="">--Choississez la langue parlée--</option>
-                                        <option value="FR">Français</option>
-                                        <option value="EN"></option>
+                                    <select id="styleplayer">
+                                        <option value="" selected disable hidden>--Choisissez votre style--</option>
+                                        <?php foreach ($stylePlayerList as $styles) { ?>
+                                            <option value="<?= $styles->name ?>"><?= $styles->name ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-outline-secondary login-button">Enregistrer vos modifications</button>
+                                <input type="submit" value="Enregister les modifications" id="updateBtn" name="UpdateCharacteristics" class="btn btn-outline-secondary" value="Modifier les informations "></button>
                             </form>
                         </div>
                     </div>
@@ -188,7 +230,7 @@
                                     <label for="inputPasswordNew2">Confirmez votre mot de passe avant la suppression</label>
                                     <input type="password" class="form-control" id="inputPasswordNew2">
                                 </div>
-                                <button type="submit" class="btn btn-outline-danger login-button">Supprimez votre compte</button>
+                                <input type="submit" id="deleteBtn" name="DeleteAccount" class="btn btn-outline-danger" value="Supprimer votre compte utilisateur"></button>
                             </form>
                         </div>
                     </div>

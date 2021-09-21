@@ -1,7 +1,6 @@
 <?php
-class style extends MainModel
+class Style extends MainModel
 {
-    protected $role = '';
     protected $name = '';
     protected $table = 'style';
 

@@ -42,6 +42,7 @@ require 'controllers/headerCtrl.php';
                             <li class="nav-item active">
                             <li class="nav-item"><a class="nav-link" href="?view=register">Inscription</a></li>
                             <li class="nav-item"><a class="nav-link" href="?view=login">Connexion</a></li>
+                            <li class="nav-item"><a class="nav-link" href="?view=about">A propos</a></li>
                         </ul>
             </div><!-- /.navbar-collapse -->
         <?php } ?>

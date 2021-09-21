@@ -9,6 +9,7 @@ class Users extends MainModel
     protected $firstname = '';
     protected $password_hash = '';
     protected $birthdate = '';
+    protected $description = '';
     protected $hash = null;
     protected $id_roles = 0;
     protected $table = 'users';
@@ -70,13 +71,14 @@ class Users extends MainModel
         return $pdoStatment->fetch(PDO::FETCH_OBJ);
     }
 
-    public function updateUserInfo()
+    public function updateProfile()
     {
-        $pdoStatment = $this->pdo->prepare('UPDATE users SET lastname=:lastname, firstname=:firstname, birthdate=:birthdate, pseudo=:pseudo WHERE id = :userid');
+        $pdoStatment = $this->pdo->prepare('UPDATE users SET lastname=:lastname, firstname=:firstname, birthdate=:birthdate, pseudo=:pseudo, description=:description WHERE id = :userid');
         $pdoStatment->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $pdoStatment->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
         $pdoStatment->bindValue(':birthdate', $this->birthdate, PDO::PARAM_STR);
         $pdoStatment->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
+        $pdoStatment->bindValue(':description', $this->description, PDO::PARAM_STR);
         $pdoStatment->bindValue(':userid', $this->id, PDO::PARAM_INT);
         return $pdoStatment->execute();
     }
