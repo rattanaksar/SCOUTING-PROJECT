@@ -7,5 +7,7 @@
             <h2 class><?= $user->lastname; ?></h2>
             <h3 class><?= $user->firstname; ?></h3>
             </a>
-        </li> <?php } ?>
+        </li> <?php }
+                ?>
+
     <script type="text/javascript" src="./script/userlist.js"></script>
