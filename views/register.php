@@ -9,61 +9,53 @@
                         <div class="input-group">
                             <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-user fa" style="color:white" aria-hidden="true"></i></span>
                             <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Entrer votre pseudo" />
-                            <?php
-                            if (!empty($error['pseudo'])) {
-                            ?>
-                                <p class="text-danger"><?= $error['pseudo']; ?></p>
-                            <?php
-                            }
-                            ?>
                         </div>
                     </div>
+                    <?php
+                    if (!empty($registerForm->error['pseudo'])) {
+                    ?>
+                        <p class="fst-italic text-danger"><?= $message ?></p>
+                    <?php
+                    }
+                    ?>
                     <div class="form-group">
                         <label for="lastname" class="cols-sm-2 control-label">Votre nom</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-user fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Entrer votre nom" />
-                                <?php
-                                if (!empty($error['lastname'])) {
-                                ?>
-                                    <p class="text-danger"><?= $error['lastname']; ?></p>
-                                <?php
-                                }
-                                ?>
                             </div>
                         </div>
                     </div>
+                    <?php
+                    if (!empty($registerForm->error['lastname'])) {
+                    ?>
+                        <p class="fst-italic text-danger"><?= $message ?></p>
+                    <?php
+                    }
+                    ?>
                     <div class="form-group">
                         <label for="firstname" class="cols-sm-2 control-label">Votre prénom</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-user fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Entrer votre prénom" />
-                                <?php
-                                if (!empty($error['firstname'])) {
-                                ?>
-                                    <p class="text-danger"><?= $error['firstname']; ?></p>
-                                <?php
-                                }
-                                ?>
                             </div>
                         </div>
                     </div>
+                    <?php
+                    if (!empty($registerForm->error['firstname'])) {
+                    ?>
+                        <p class="fst-italic text-danger"><?= $message ?></p>
+                    <?php
+                    }
+                    ?>
                     <div class="form-group">
                         <label for="birthdate" class="cols-sm-2 control-label">Date de naissance</label>
                         <div class="cols-sm-10">
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-calendar-o fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="date" class="form-control" name="birthdate" id="birthdate" />
-                                <?php
-                                if (!empty($error['birthdate'])) {
-                                ?>
-                                    <p class="text-danger"><?= $error['birthtdate']; ?></p>
-                                <?php
-                                }
-                                ?>
-
                             </div>
                         </div>
                     </div>
@@ -74,23 +66,23 @@
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-envelope fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="email" name="mail" id="mail" class="form-control" />
-                                <?php
-                                if (!empty($error['mail'])) {
-                                ?>
-                                    <p class="text-danger"><?= $error['mail']; ?></p>
-                                <?php
-                                }
-                                ?>
                             </div>
                         </div>
                     </div>
+                    <?php
+                    if (!empty($registerForm->error['mail'])) {
+                    ?>
+                        <p class="fst-italic text-danger"><?= $message ?></p>
+                    <?php
+                    }
+                    ?>
                     <div class="form-group">
                         <label for="role" class="form-label" id="role">Profil</label>
                         <div class="col-md-auto">
                             <select class="form-control" name="role">
                                 <option value="" selected disable hidden>Choisissez votre profil</option>
                                 <?php foreach ($roleUsers as $roles) { ?>
-                                    <option value="<?= $roles->name ?>"><?= $roles->name ?></option>
+                                    <option value="<?= $roles->id ?>"><?= $roles->name ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -102,19 +94,20 @@
                             <div class="input-group">
                                 <span class="input-group-addon" style="padding:0.9em"><i class="fa fa-key fa" style="color:white" aria-hidden="true"></i></span>
                                 <input type="password" name="password" id="password" class="form-control" />
-                                <?php
-                                if (!empty($error['mail'])) {
-                                ?>
-                                    <p class="text-danger"><?= $error['mail']; ?></p>
-                                <?php
-                                }
-                                ?>
                             </div>
                         </div>
                     </div>
+                    <?php
+                    if (!empty($registerForm->error['password'])) {
+                    ?>
+                        <p class="fst-italic text-danger"><?= $message ?></p>
+                    <?php
+                    }
+                    ?>
                     <div class="form-group ">
-                        <input type="submit" value="S'inscrire" id="registerBtn" name="register" class="btn btn-outline-secondary" value="Créer mon compte">
+                        <input type="submit" value="S'inscrire" id="registerBtn" name="register" class="btn btn-outline-secondary">
                     </div>
+                    <p class><?= $message ?></p>
                 </div>
             </form>
         </div>

@@ -172,73 +172,8 @@ span.input-group-addon i {
     margin-bottom: 35px;
 }
 
-/* Profil du user */
 
-.divProfil {
-    height: auto;
-    background-color: #f8f8f8;
-    border: 2px solid grey;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 50px;
-}
 
-.infoUser h1 {
-    font-size: 25px;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 25px;
-}
-
-.infoUser p {
-    display: inline;
-    text-align: right;
-    font-weight: bold;
-}
-
-.infoUser img {
-    width: 150px;
-    height: 150px;
-    border-radius: 100px;
-}
-
-.infoUser h2 {
-    display: inline;
-    font-size: 15px;
-}
-
-.imgUser {
-    text-align: center;
-}
-
-.imgUser i {
-    margin-top: 50px;
-    margin-bottom: 30px;
-    width: 200px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.inputError {
-    color: red;
-}
-
-.formValid {
-    color: #00EE00;
-}
-
-.table-rdv {
-    background-color: white;
-    text-align: center;
-}
-
-.table-rdv th {
-    border-color: black;
-    text-align: center;
-}
 
 h4 {
     background-color: white;
@@ -257,4 +192,8 @@ h4 {
     color: #fff;
     background-color: #ccac00;
     border-color: #ccac00;
+}
+
+.p {
+    color: #ccac00;
 }

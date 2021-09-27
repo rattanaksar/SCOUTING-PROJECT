@@ -19,9 +19,9 @@ if (!empty($_GET['view'])) {
     } else if ($_GET['view'] == 'userprofile') {
         $view = 'userprofile';
         $css = '<link rel="stylesheet" href="./assets/css/profile.css">';
-    } else if ($_GET['view'] == 'updateprofile') {
-        $view = 'updateprofile';
-        $css = '<link rel="stylesheet" href="./assets/css/updateprofile.css">';
+    } else if ($_GET['view'] == 'profilesettings') {
+        $view = 'profilesettings';
+        $css = '<link rel="stylesheet" href="./assets/css/profilesettings.css">';
     } else if ($_GET['view'] == 'about') {
         $view = 'about';
         $css = '<link rel="stylesheet" href="./assets/css/about.css">';

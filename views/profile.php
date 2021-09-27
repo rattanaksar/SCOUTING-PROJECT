@@ -1,5 +1,5 @@
 <div class="container">
-    <a href="?view=updateprofile">
+    <a href="?view=profilesettings">
         <input type="submit" name="submit" class="btn btn-outline-secondary login-button" value="Modifier vos informations" /></a>
     <div class="top">
         <div class="main">

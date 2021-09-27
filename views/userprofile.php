@@ -7,23 +7,23 @@
                     <li class="pseudo">Pseudo : <?= $isFind->pseudo ?></li>
                     <li class="name"><?= $isFind->lastname ?> <?= $isFind->firstname ?></li>
                     <li class="bar"></li>
-                    <li class="position">Attaquant</li>
+                    <li class="position"><?= $isFind->Position ?></li>
                 </ul>
         </div>
         <div class="photo"></div>
         <div class="info">
             <ul>
                 <li class="header">Taille</li>
-                <li class="data">171 cm</li>
+                <li class="data"><?= $isFind->height ?> cm</li>
                 <li class="bar"></li>
                 <li class="header">Poids</li>
-                <li class="data">80 kg</li>
+                <li class="data"><?= $isFind->weight ?> kg</li>
                 <li class="bar"></li>
                 <li class="header">Date de naissance</li>
                 <li class="data"><?= $isFind->birthdate ?></li>
                 <li class="bar"></li>
                 <li class="header">Club</li>
-                <li class="data">Manchester United (Premier)</li>
+                <li class="data"><?= $isFind->Club ?> </li>
             </ul>
         </div>
     </div>

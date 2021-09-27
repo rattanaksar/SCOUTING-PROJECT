@@ -61,7 +61,7 @@
                                             <select id="country">
                                                 <option value="" selected disable hidden>--Sélectionnez votre pays--</option>
                                                 <?php foreach ($CountriesList as $country) { ?>
-                                                    <option value="<?= $country->countryname ?>"><?= $country->countryname ?></option>
+                                                    <option value="<?= $country->id ?>"><?= $country->COUNTRYNAME ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
@@ -201,7 +201,7 @@
                                     <select id="foot-selected">
                                         <option value="" selected disable hidden>--Choisissez votre pied fort--</option>
                                         <?php foreach ($footPrefered as $foots) { ?>
-                                            <option value="<?= $foots->foot_prefered ?>"><?= $foots->foot_prefered ?></option>
+                                            <option value="<?= $foots->name ?>"><?= $foots->name ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
