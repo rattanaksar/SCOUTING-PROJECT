@@ -7,7 +7,7 @@ class Users extends MainModel
     protected $lastname = '';
     protected $firstname = '';
     protected $password_hash = '';
-    protected $birthdate = '';
+    protected $birthdate = '01/01/1900';
     protected $description = '';
     protected $hash = null;
     protected $weight = '';
