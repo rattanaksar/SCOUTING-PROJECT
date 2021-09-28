@@ -3,22 +3,21 @@
         <input type="submit" name="submit" class="btn btn-outline-secondary login-button" value="Modifier vos informations" /></a>
     <div class="top">
         <div class="main">
-            <form action="profile.php?userId=<?= $_GET['userId']->id ?>" method="post">
-                <ul>
-                    <li class="pseudo">Pseudo : <?= $pseudo ?></li>
-                    <li class="name"><?= $lastname ?> <?= $firstname ?></li>
-                    <li class="bar"></li>
-                    <li class="position">Attaquant</li>
-                </ul>
+            <ul>
+                <li class="pseudo">Pseudo : <?= $pseudo ?></li>
+                <li class="name"><?= $lastname ?> <?= $firstname ?></li>
+                <li class="bar"></li>
+                <li class="position">Attaquant</li>
+            </ul>
         </div>
         <div class="photo"></div>
         <div class="info">
             <ul>
                 <li class="header">Taille</li>
-                <li class="data"><?= $height ?></li>
+                <li class="data"><?= $height ?> Cm </li>
                 <li class="bar"></li>
                 <li class="header">Poids</li>
-                <li class="data"><?= $weight ?></li>
+                <li class="data"><?= $weight ?> Kg </li>
                 <li class="bar"></li>
                 <li class="header">Date de naissance</li>
                 <li class="data"><?= $birthdate ?></li>

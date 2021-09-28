@@ -78,7 +78,6 @@ if (isset($_POST['register'])) {
         $user->__set('mail', $mail);
         $user->__set('id_roles', $role);
         $user->__set('hash', str::getRandomString(50));
-        var_dump($user);
         if ($user->addUser()) {
             $message = 'Votre compte a bien été crée! Vous pouvez vous connecter.';
         }

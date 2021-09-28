@@ -5,6 +5,8 @@ require_once 'models/Role.php';
 require_once 'models/Strongfoot.php';
 require_once 'models/Languages_spoken.php';
 require_once 'models/Position.php';
+require_once 'models/Club.php';
+require_once 'models/Championship.php';
 require_once 'models/Countries.php';
 require_once 'models/Nationality.php';
 require_once 'models/Style.php';
@@ -87,7 +89,7 @@ if (isset($_POST['updateMail'])) {
     }
 }
 if (!empty($updateArray)) {
-    // je modifie les attributs de la classe grâce au setter
+    // Modification les attributs de la classe grâce au setter
     $user->__set('id', $_SESSION['user']['id']);
     $user->__set('pseudo', $updateArray['pseudo']);
     $user->__set('lastname', $updateArray['lastname']);
@@ -113,7 +115,7 @@ if (!empty($updateArray)) {
 }
 
 if (isset($_POST['deleteAccount'])) {
-    // Je récupère l'ID de User via $_SESSION
+    // Récupération l'ID de User via $_SESSION
     if (isset($_SESSION['user']['id'])) {
         $user = new Users();
         $hash = $user->getUserHashDelete();
@@ -123,7 +125,7 @@ if (isset($_POST['deleteAccount'])) {
             session_destroy();
             header('Location: index.php');
         }
-        // si tout est ok, on redirige vers la page d'accueil
+        // Si la suppression est OK, redirection vers l'accueil
     } else {
         $message = 'Une erreur est survenue.';
     }
@@ -146,6 +148,12 @@ $positionList = $position->getPosition();
 
 $nationality = new Nationality();
 $nationalityList = $nationality->getNationality();
+
+$club = new Club();
+$clubList = $club->getClublist();
+
+$championship = new Championship();
+$championshipList = $championship->getChampionshiplist();
 
 $user = new Users();
 if (isset($_GET['userId'])) {

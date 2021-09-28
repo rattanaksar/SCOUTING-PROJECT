@@ -17,7 +17,7 @@ $weight = isset($_SESSION['user']['weight']) ? $_SESSION['user']['weight'] : '';
 $height = isset($_SESSION['user']['height']) ? $_SESSION['user']['height'] : '';
 $description = isset($_SESSION['user']['description']) ? $_SESSION['user']['description'] : '';
 
-// On contrôle les informations modifiées
+
 
 $user = new Users();
 if (isset($_GET['userId'])) {

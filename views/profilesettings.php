@@ -52,39 +52,24 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="countrySelected">Pays</label>
+                                            <label for="clubSelected">Club</label>
                                             <br>
-                                            <select id="country">
-                                                <option value="" selected disable hidden>--Sélectionnez votre pays--</option>
-                                                <?php foreach ($CountriesList as $country) { ?>
-                                                    <option value="<?= $country->id ?>"><?= $country->COUNTRYNAME ?></option>
+                                            <select id="club">
+                                                <option value="" selected disable hidden>--Sélectionnez votre club--</option>
+                                                <?php foreach ($clubList as $club) { ?>
+                                                    <option value="<?= $club->id ?>"><?= $club->name ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="nationalitySelected">Nationalité</label>
+                                            <label for="championshipSelected">Championnat</label>
                                             <br>
-                                            <select id="nationality">
-                                                <option value="" selected disable hidden>--Sélectionnez votre nationalité--</option>
-                                                <?php foreach ($nationalityList as $nationality) { ?>
-                                                    <option value="<?= $nationality->name ?>"><?= $nationality->name ?></option>
+                                            <select id="championship">
+                                                <option value="" selected disable hidden>--Sélectionnez votre championnat--</option>
+                                                <?php foreach ($championshipList as $championship) { ?>
+                                                    <option value="<?= $championship->id ?>"><?= $championship->name ?></option>
                                                 <?php } ?>
                                             </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="spokenLanguages">Langue parlée</label>
-                                            <br>
-                                            <select id="spokenLanguages">
-                                                <option value="" selected disable hidden>--Choisissez votre langue--</option>
-                                                <?php foreach ($spokenLanguages as $languages) { ?>
-                                                    <option value="<?= $languages->name ?>"><?= $languages->name ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <br>
-                                            <label for="bio">Description</label>
-                                            <textarea rows="2" class="form-control" id="inputBio" placeholder="Parlez nous de vous"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
