@@ -96,11 +96,10 @@ if (!empty($updateArray)) {
     $user->__set('height', $updateArray['height']);
     $user->__set('weight', $updateArray['weight']);
     $user->__set('mail', $updateArray['mail']);
-    var_dump($updateArray);
-    // ici j'exécute la méthodes updateUserInfo() de l'objet $user, j'y récupère les modifications stockées dans le tableau $updateArray
+    // Execution de la méthode updateProfile() de l'objet $user, et récupèration les modifications stockées dans le tableau $updateArray
     $isUpdated = $user->updateProfile($updateArray);
     if ($isUpdated) {
-        // ici, je mets à jour les informations, visuellement, sur le profil de l'utilisateur en passant par les variables de session
+        // Mise à jour des informations puis je les passe dans les variables de session
         $_SESSION['user']['pseudo'] = $updateArray['pseudo'];
         $_SESSION['user']['lastname'] = $updateArray['lastname'];
         $_SESSION['user']['firstname'] = $updateArray['firstname'];
@@ -108,14 +107,13 @@ if (!empty($updateArray)) {
         $_SESSION['user']['weight'] = $updateArray['weight'];
         $_SESSION['user']['height'] = $updateArray['height'];
         $_SESSION['user']['mail'] = $updateArray['mail'];
-        // si tout est ok, je redirige l'utilisateur vers sa page de profil
     } else {
         $message = "La modification n'a pas été prise en compte";
     }
 }
 
 if (isset($_POST['deleteAccount'])) {
-    // on vérifie  que l'ID de l'utilisateur a bien été récupéré dans l'URL
+    // Je récupère l'ID de User via $_SESSION
     if (isset($_SESSION['user']['id'])) {
         $user = new Users();
         $hash = $user->getUserHashDelete();
