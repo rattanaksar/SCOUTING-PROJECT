@@ -12,7 +12,9 @@ require_once 'classes/Form.php';
 require_once 'classes/str.php';
 
 $updateForm = new Form();
-$updateArray = '';
+$updateArray = [];
+$user = new Users();
+
 
 //Contrôle du formulaire Coordonnées
 if (isset($_POST['UpdateContactDetails'])) {
@@ -47,16 +49,6 @@ if (isset($_POST['updateFirstname'])) {
         $updateForm->error['firstname'];
     }
 }
-if (isset($_POST['updateMail'])) {
-    $updateMail = htmlspecialchars($_POST['updateMail']);
-    $updateForm->isNotEmpty('mail', $updateMai);
-    if (!isset($updateForm->error['mail'])) {
-        $updateArray['mail'] = $updateMail;
-    } else {
-        $updateForm->error['mail'];
-    }
-}
-
 if (isset($_POST['updateBirthdate'])) {
     $updateBirthdate = htmlspecialchars($_POST['updateBirthdate']);
     //Je vérifie la date de naissance
@@ -67,6 +59,33 @@ if (isset($_POST['updateBirthdate'])) {
         $updateForm->error['birthdate'];
     }
 }
+if (isset($_POST['updateWeight'])) {
+    $updateWeight = htmlspecialchars($_POST['updateWeight']);
+    $updateForm->isNotEmpty('weight', $updateWeight);
+    if (!isset($updateForm->error['weight'])) {
+        $updateArray['weight'] = $updateWeight;
+    } else {
+        $updateForm->error['weight'];
+    }
+}
+if (isset($_POST['updateHeight'])) {
+    $updateHeight = htmlspecialchars($_POST['updateHeight']);
+    $updateForm->isNotEmpty('height', $updateHeight);
+    if (!isset($updateForm->error['height'])) {
+        $updateArray['height'] = $updateHeight;
+    } else {
+        $updateForm->error['height'];
+    }
+}
+if (isset($_POST['updateMail'])) {
+    $updateMail = htmlspecialchars($_POST['updateMail']);
+    $updateForm->isNotEmpty('mail', $updateMail);
+    if (!isset($updateForm->error['mail'])) {
+        $updateArray['mail'] = $updateMail;
+    } else {
+        $updateForm->error['mail'];
+    }
+}
 if (!empty($updateArray)) {
     // je modifie les attributs de la classe grâce au setter
     $user->__set('id', $_SESSION['user']['id']);
@@ -74,7 +93,10 @@ if (!empty($updateArray)) {
     $user->__set('lastname', $updateArray['lastname']);
     $user->__set('firstname', $updateArray['firstname']);
     $user->__set('birthdate', $updateArray['birthdate']);
+    $user->__set('height', $updateArray['height']);
+    $user->__set('weight', $updateArray['weight']);
     $user->__set('mail', $updateArray['mail']);
+    var_dump($updateArray);
     // ici j'exécute la méthodes updateUserInfo() de l'objet $user, j'y récupère les modifications stockées dans le tableau $updateArray
     $isUpdated = $user->updateProfile($updateArray);
     if ($isUpdated) {
@@ -83,22 +105,27 @@ if (!empty($updateArray)) {
         $_SESSION['user']['lastname'] = $updateArray['lastname'];
         $_SESSION['user']['firstname'] = $updateArray['firstname'];
         $_SESSION['user']['birthdate'] = $updateArray['birthdate'];
+        $_SESSION['user']['weight'] = $updateArray['weight'];
+        $_SESSION['user']['height'] = $updateArray['height'];
         $_SESSION['user']['mail'] = $updateArray['mail'];
         // si tout est ok, je redirige l'utilisateur vers sa page de profil
-        header('Location: ./views/profile.php');
     } else {
-        $message = implode($updateForm->error);
-        var_dump($message);
+        $message = "La modification n'a pas été prise en compte";
     }
 }
 
 if (isset($_POST['deleteAccount'])) {
     // on vérifie  que l'ID de l'utilisateur a bien été récupéré dans l'URL
-    if (isset($_GET['userID'])) {
-        $user->id = htmlspecialchars($_GET['userID']);
-        $deleteProfile = $user->deleteProfile();
+    if (isset($_SESSION['user']['id'])) {
+        $user = new Users();
+        $hash = $user->getUserHashDelete();
+        $confirmationPassword = (isset($_POST['ConfirmationPassword']) ? $_POST['ConfirmationPassword'] : '');
+        if (password_verify($confirmationPassword, $hash)) {
+            $deleteProfile = $user->deleteProfile();
+            session_destroy();
+            header('Location: index.php');
+        }
         // si tout est ok, on redirige vers la page d'accueil
-        header('Location: index.php');
     } else {
         $message = 'Une erreur est survenue.';
     }

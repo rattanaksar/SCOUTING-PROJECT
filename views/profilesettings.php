@@ -52,10 +52,6 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="inputUsername">Pseudo</label>
-                                            <input type="text" class="form-control" id="inputUsername" placeholder="Pseudo">
-                                        </div>
-                                        <div class="form-group">
                                             <label for="countrySelected">Pays</label>
                                             <br>
                                             <select id="country">
@@ -121,26 +117,98 @@
                             <h5 class="card-title mb-0">Coordonnées</h5>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form method="POST" action="#">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="inputFirstName">Prénom</label>
-                                        <input type="text" class="form-control" id="inputFirstName" placeholder="Prénom">
+                                        <label for="updateFirstname">Prénom</label>
+                                        <input type="text" class="form-control" id="updateFirstname" name="updateFirstname" value="<?= isset($_SESSION['user']['firstname']) ? $_SESSION['user']['firstname'] : '' ?>">
                                     </div>
+                                    <?php
+                                    if (!empty($updateForm->error['firstname'])) {
+                                    ?>
+                                        <p class="fst-italic text-danger"><?= $message ?></p>
+                                    <?php
+                                    }
+                                    ?>
                                     <div class="form-group col-md-6">
-                                        <label for="inputLastName">Nom</label>
-                                        <input type="text" class="form-control" id="inputLastName" placeholder="Nom">
+                                        <label for="updateLastname">Nom</label>
+                                        <input type="text" class="form-control" id="updateLastname" name="updateLastname" value="<?= isset($_SESSION['user']['lastname']) ? $_SESSION['user']['lastname'] : '' ?>">
                                     </div>
+                                    <?php
+                                    if (!empty($updateForm->error['lastname'])) {
+                                    ?>
+                                        <p class="fst-italic text-danger"><?= $message ?></p>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail">Mail</label>
-                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    <label for="updatePseudo">Pseudo</label>
+                                    <input type="text" class="form-control" id="updatePseudo" name="updatePseudo" value="<?= isset($_SESSION['user']['pseudo']) ? $_SESSION['user']['pseudo'] : '' ?>">
                                 </div>
+                                <?php
+                                if (!empty($updateForm->error['pseudo'])) {
+                                ?>
+                                    <p class="fst-italic text-danger"><?= $message ?></p>
+                                <?php
+                                }
+                                ?>
                                 <div class="form-group">
-                                    <label for="birthdate">Date de naissance</label>
-                                    <input type="date" class="form-control" id="birthdate" placeholder="date de naissance">
+                                    <label for="updateMail">Mail</label>
+                                    <input type="email" class="form-control" id="updateMail" name="updateMail" value="<?= isset($_SESSION['user']['mail']) ? $_SESSION['user']['mail'] : '' ?>">
                                 </div>
-                                <input type="submit" value="Enregister les modifications" id="updateBtn" name="UpdateContactDetails" class="btn btn-outline-secondary" value="Modifier les informations "></button>
+                                <?php
+                                if (!empty($updateForm->error['mail'])) {
+                                ?>
+                                    <p class="fst-italic text-danger"><?= $message ?></p>
+                                <?php
+                                }
+                                ?>
+                                <div class="form-group">
+                                    <label for="updateBirthdate">Date de naissance</label>
+                                    <input type="date" class="form-control" id="updateBirthdate" name="updateBirthdate" value="<?= isset($_SESSION['user']['birthdate']) ? $_SESSION['user']['birthdate'] : '' ?>">
+                                </div>
+                                <?php
+                                if (!empty($updateForm->error['birthdate'])) {
+                                ?>
+                                    <p class="fst-italic text-danger"><?= $message ?></p>
+                                <?php
+                                }
+                                ?>
+                                <div class="form-group">
+                                    <label for="updateHeight">Taille</label>
+                                    <input type="number" class="form-control" id="updateHeight" name="updateHeight" value="<?= isset($_SESSION['user']['height']) ? $_SESSION['user']['height'] : '' ?>">
+                                </div>
+                                <?php
+                                if (!empty($updateForm->error['height'])) {
+                                ?>
+                                    <p class="fst-italic text-danger"><?= $message ?></p>
+                                <?php
+                                }
+                                ?>
+                                <div class="form-group">
+                                    <label for="updateWeight">Poids</label>
+                                    <input type="number" class="form-control" id="updateWeight" name="updateWeight" value="<?= isset($_SESSION['user']['weight']) ? $_SESSION['user']['weight'] : '' ?>">
+                                </div>
+                                <?php
+                                if (!empty($updateForm->error['weight'])) {
+                                ?>
+                                    <p class="fst-italic text-danger"><?= $message ?></p>
+                                <?php
+                                }
+                                ?>
+                                <div class="form-group">
+                                    <label for="updateDescription">Description</label>
+                                    <textarea rows="2" class="form-control" id="updateDescription" name="updateDescription" value="<?= isset($_SESSION['user']['description']) ? $_SESSION['user']['description'] : '' ?>"></textarea>
+                                </div>
+                                <?php
+                                if (!empty($updateForm->error['description'])) {
+                                ?>
+                                    <p class="fst-italic text-danger"><?= $message ?></p>
+                                <?php
+                                }
+                                ?>
+                                <input type="submit" value="Enregister les modifications" id="UpdateContactDetails" name="UpdateContactDetails" class="btn btn-outline-secondary"></button>
                             </form>
                         </div>
                     </div>
@@ -225,12 +293,12 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Suppression du compte</h5>
-                            <form>
+                            <form method="POST">
                                 <div class="form-group">
                                     <label for="inputPasswordNew2">Confirmez votre mot de passe avant la suppression</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew2">
+                                    <input type="password" class="form-control" id="inputPasswordNew2" name="ConfirmationPassword">
                                 </div>
-                                <input type="submit" id="deleteBtn" name="DeleteAccount" class="btn btn-outline-danger" value="Supprimer votre compte utilisateur"></button>
+                                <input type="submit" id="deleteBtn" name="deleteAccount" class="btn btn-outline-danger" value="Supprimer votre compte utilisateur"></button>
                             </form>
                         </div>
                     </div>

@@ -13,6 +13,9 @@ $firstname = isset($_SESSION['user']['firstname']) ? $_SESSION['user']['firstnam
 $birthdate = isset($_SESSION['user']['birthdate']) ? $_SESSION['user']['birthdate'] : '';
 $mail = isset($_SESSION['user']['mail']) ? $_SESSION['user']['mail'] : '';
 $userId = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : '';
+$weight = isset($_SESSION['user']['weight']) ? $_SESSION['user']['weight'] : '';
+$height = isset($_SESSION['user']['height']) ? $_SESSION['user']['height'] : '';
+$description = isset($_SESSION['user']['description']) ? $_SESSION['user']['description'] : '';
 
 // On contrôle les informations modifiées
 

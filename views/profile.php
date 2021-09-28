@@ -15,10 +15,10 @@
         <div class="info">
             <ul>
                 <li class="header">Taille</li>
-                <li class="data">171 cm</li>
+                <li class="data"><?= $height ?></li>
                 <li class="bar"></li>
                 <li class="header">Poids</li>
-                <li class="data">80 kg</li>
+                <li class="data"><?= $weight ?></li>
                 <li class="bar"></li>
                 <li class="header">Date de naissance</li>
                 <li class="data"><?= $birthdate ?></li>

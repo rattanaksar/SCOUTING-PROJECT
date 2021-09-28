@@ -10,6 +10,8 @@ class Users extends MainModel
     protected $birthdate = '';
     protected $description = '';
     protected $hash = null;
+    protected $weight = '';
+    protected $height = '';
     protected $id_roles = 0;
     protected $table = 'users';
 
@@ -46,6 +48,17 @@ class Users extends MainModel
     {
         $pdoStatment = $this->pdo->prepare('SELECT `password_hash` FROM `users` WHERE `mail` = :mail');
         $pdoStatment->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $pdoStatment->execute();
+        $result = $pdoStatment->fetch(PDO::FETCH_OBJ);
+        if (!empty($result)) {
+            $result = $result->password_hash;
+        }
+        return $result;
+    }
+    public function getUserHashDelete()
+    {
+        $pdoStatment = $this->pdo->prepare('SELECT `password_hash` FROM `users` WHERE `mail` = :mail');
+        $pdoStatment->bindValue(':mail', $_SESSION['user']['mail'], PDO::PARAM_STR);
         $pdoStatment->execute();
         $result = $pdoStatment->fetch(PDO::FETCH_OBJ);
         if (!empty($result)) {
@@ -96,15 +109,15 @@ class Users extends MainModel
     // Méthode pour modifier les informations de l'utilisateur
     public function updateProfile()
     {
-        $pdoStatment = $this->pdo->prepare('UPDATE users SET lastname=:lastname, firstname=:firstname, birthdate=:birthdate, pseudo=:pseudo, description = :description, weight = :weight, height = :height  WHERE id = :userId');
-        $pdoStatment->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':birthdate', $this->birthdate, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':description', $this->description, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':weight', $this->weight, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':height', $this->height, PDO::PARAM_STR);
-        $pdoStatment->bindValue(':userId', $this->id, PDO::PARAM_INT);
+        $pdoStatment = $this->pdo->prepare('UPDATE users SET lastname=:lastname, firstname=:firstname, birthdate=:birthdate, pseudo=:pseudo, description =:description, weight =:weight, height =:height  WHERE id=:userId');
+        $pdoStatment->bindParam(':lastname', $this->lastname, PDO::PARAM_STR);
+        $pdoStatment->bindParam(':firstname', $this->firstname, PDO::PARAM_STR);
+        $pdoStatment->bindParam(':birthdate', $this->birthdate, PDO::PARAM_STR);
+        $pdoStatment->bindParam(':pseudo', $this->pseudo, PDO::PARAM_STR);
+        $pdoStatment->bindParam(':description', $this->description, PDO::PARAM_STR);
+        $pdoStatment->bindParam(':weight', $this->weight, PDO::PARAM_STR);
+        $pdoStatment->bindParam(':height', $this->height, PDO::PARAM_STR);
+        $pdoStatment->bindParam(':userId', $this->id, PDO::PARAM_INT);
         return $pdoStatment->execute();
     }
     // Méthode pour récupérer la liste des utilisateurs
@@ -133,7 +146,7 @@ class Users extends MainModel
     public function deleteProfile()
     {
         $pdoStatment = $this->pdo->prepare('DELETE FROM `USERS`WHERE `id`= :id');
-        $pdoStatment->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $pdoStatment->bindValue(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
         $pdoStatment->execute();
         return !$this->checkUserExists(); // Le point d'exclamation devant $this renvoie un false
     }
